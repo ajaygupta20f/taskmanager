@@ -1,12 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { use } from 'react'
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 export default function EditTaskPage({ params }) {
   const { token, isAuthenticated } = useAuth();
   const router = useRouter();
-  const { id } =params;
+    const { id } = use(params);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [status, setStatus] = useState('pending');
